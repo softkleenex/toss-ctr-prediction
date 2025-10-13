@@ -146,29 +146,46 @@ for period in [24, 12, 8, 6]:
 
 ```
 toss-ctr-prediction/
-├── README.md
-├── requirements.txt
-├── src/
-│   ├── preprocessing/
-│   │   ├── feature_engineering.py
-│   │   └── data_loader.py
-│   ├── models/
-│   │   ├── lightgbm_trainer.py
-│   │   ├── xgboost_trainer.py
-│   │   └── ensemble.py
-│   ├── utils/
-│   │   ├── calibration.py
-│   │   └── validation.py
-│   └── main_training_pipeline.py
-├── submissions/
-│   ├── supreme_evolved_refined.csv
-│   ├── final_push_v1.csv
-│   └── enhanced_v2.csv
-└── docs/
-    ├── APPROACH.md          # 상세 접근 방법
-    ├── FEATURE_ENGINEERING.md
-    └── RESULTS_ANALYSIS.md
+├── README.md                    # 프로젝트 개요 및 사용법
+├── LICENSE                      # MIT License
+├── CONTRIBUTING.md              # 기여 가이드라인
+├── requirements.txt             # Python 패키지 의존성
+├── SUBMISSION_RECORD.md         # 제출 기록 및 점수
+├── HOW_TO_GITHUB.md            # GitHub 업로드 가이드
+├── GITHUB_UPLOAD_GUIDE.md      # 상세 업로드 가이드
+├── PORTFOLIO_STATUS.md         # 포트폴리오 완성 상태
+│
+├── src/                        # 소스 코드
+│   ├── supreme_evolved_training.py  # 최고 성적 모델 (0.3434)
+│   └── enhanced_v2_training.py      # 개선된 전처리 모델
+│
+├── docs/                       # 상세 문서
+│   ├── APPROACH.md             # 전략 및 방법론 (10,000+ words)
+│   ├── FEATURES.md             # Feature Engineering 상세 가이드
+│   └── RESULTS.md              # 실험 결과 및 성능 분석
+│
+├── data/                       # 데이터 폴더 (.gitignore)
+│   ├── train.parquet           # 학습 데이터 (10.7M rows)
+│   └── test.parquet            # 테스트 데이터 (1.5M rows)
+│
+└── submissions/                # 제출 파일 (.gitignore)
+    ├── supreme_evolved_refined_*.csv   # #1: 0.3434805649
+    ├── final_push_v1_*.csv             # #2: 0.3434775373
+    └── enhanced_v2_*.csv               # #3: 0.3425593061
 ```
+
+### 📄 주요 파일 설명
+
+| 파일 | 설명 | 라인 수 |
+|------|------|---------|
+| **README.md** | 프로젝트 전체 개요 및 Quick Start | 279 |
+| **src/supreme_evolved_training.py** | 최고 성적 달성 모델 코드 (AUC: 0.3434) | 650+ |
+| **src/enhanced_v2_training.py** | 개선된 전처리 및 기본 FE 모델 | 219 |
+| **docs/APPROACH.md** | 전략, 방법론, 파이프라인 상세 설명 | 370 |
+| **docs/FEATURES.md** | 42+ 피처 엔지니어링 상세 가이드 | 500+ |
+| **docs/RESULTS.md** | 실험 결과, 성능 분석, 실패 사례 | 600+ |
+| **SUBMISSION_RECORD.md** | 전체 제출 기록 및 최적 설정 | 78 |
+| **CONTRIBUTING.md** | 코드 기여 가이드라인 | 150+ |
 
 ## 🔬 실험 및 결과
 
@@ -258,15 +275,52 @@ del train_df
 gc.collect()
 ```
 
+## 📖 상세 문서
+
+### 1. [APPROACH.md](docs/APPROACH.md)
+전체 접근 방법 및 전략을 상세히 설명합니다.
+- 문제 분석 및 데이터 특성
+- 전처리 전략 (결측치, 샘플링)
+- Feature Engineering (42+ 피처)
+- 모델링 및 앙상블 전략
+- Calibration 최적화
+- 실패 사례 및 교훈
+
+### 2. [FEATURES.md](docs/FEATURES.md)
+Feature Engineering 상세 가이드
+- 기본 피처 22개 설명
+- 엔지니어링 피처 20개 설명
+- 피처 중요도 분석
+- 피처 생성 파이프라인 코드
+
+### 3. [RESULTS.md](docs/RESULTS.md)
+실험 결과 및 성능 분석
+- 최종 성적 요약
+- 실험 히스토리 (Phase 1~5)
+- 성능 개선 과정 그래프
+- 실패 사례 분석
+- 하이퍼파라미터 튜닝 과정
+- 앙상블 전략 비교
+- Calibration 실험 결과
+
+### 4. [SUBMISSION_RECORD.md](SUBMISSION_RECORD.md)
+제출 기록 및 점수
+- Top 3 제출 상세
+- 전체 제출 히스토리
+- 실패 사례
+- 최적 설정
+
 ## 📚 참고 자료
 
 - [LightGBM Documentation](https://lightgbm.readthedocs.io/)
 - [XGBoost Documentation](https://xgboost.readthedocs.io/)
-- [CTR Prediction Best Practices](https://arxiv.org/)
+- [Dacon Competition](https://dacon.io/competitions/official/236575/overview/description)
 
 ## 🤝 기여
 
 이 프로젝트는 Dacon x 토스 CTR 예측 대회 참가작입니다.
+
+기여를 원하시면 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조해주세요.
 
 ## 📄 라이센스
 
